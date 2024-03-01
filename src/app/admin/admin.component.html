@@ -1,0 +1,36 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container">
+  <div class="dashboard">
+    <h2>Welcome, Admin!</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="https://picsum.photos/300/300" alt="Event Image">
+        <div class="card-content">
+          <h3>Events</h3>
+          <p>Manage and organize events with ease.</p>
+          <a class="btn" (click)="viewEvents()">View Events</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/300/300" alt="Booking Image">
+        <div class="card-content">
+          <h3>Bookings</h3>
+          <p>View and manage event bookings.</p>
+          <a class="btn" (click)="viewBooking()">View Bookings</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/300/300" alt="Facility Image">
+        <div class="card-content">
+          <h3>Facilities</h3>
+          <p>Manage facilities for events.</p>
+          <a class="btn" (click)="viewFacilities()">View Facilities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<app-organizer-navbar></app-organizer-navbar>
+
+<div class="container">
+  <div class="my-bookings">
+    <h2>My Bookings</h2>
+
+    <h3>User Name: {{userName}}</h3>
+    <h3> Organizer ID: {{organizerId}}</h3>
+    <div *ngFor="let bk of bookingDetailsByUserName" class="booking-card">
+      <div class="booking-details">
+        <p>BookingId:{{bk.bookingId}}</p>
+        <p>SubmissionDate:{{bk.submissionDate}}</p>
+        <p>Event Date:{{bk.eventDate}}</p>
+        <p>Description: {{bk.description}}</p>
+        <p>Booking Status: {{bk.bookingStatus}}</p>
+        <p>Event Type: {{bk.event.eventType}}</p>
+        <p>Head Count: {{bk.headcount}}</p>
+        <p>Amount:{{bk.amount}}</p>
+      </div>
+      <div class="booking-actions">
+        <button class="btn btn-primary" [disabled]="isPayment40Disabled(bk)" (click)="paymentFour(bk.amount, bk.bookingId)">Pay 40%</button>
+        <button class="btn btn-danger" [disabled]="isPayment60Disabled(bk)"  (click)="paymentSix(bk.amount, bk.bookingId)">Pay 60%</button>
+      </div>
+    </div>
+  </div>
+</div>

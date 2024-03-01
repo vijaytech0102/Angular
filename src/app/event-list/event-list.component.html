@@ -1,0 +1,114 @@
+<app-admin-navbar></app-admin-navbar>
+<table>
+  <tr>
+    <td><label><b>Filter by Event Type:</b></label></td>
+      <td><input type="text" class="form-control" [(ngModel)]="eventType" placeholder="Search by Event Type"></td>
+      <td><button class="btn btn-primary pl-10" (click)="search()">Search</button></td>
+  </tr>
+</table>
+
+
+<!-- all events -->
+<div *ngIf="!filtershow">
+<div class="container" >
+  <div class="table table-striped " >
+
+        <div *ngFor="let e of evs" style="display: inline-block;">
+          <div class="row">
+          <div class="col-12 col-md-4 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p> Event ID : {{e.eventId}}</p>
+                <p> Event Type : {{e.eventType}}</p>
+                <p> Description : {{e.description}}</p>
+                <p> Participants Count : {{e.participantsCount}}</p>
+                <p> Event Charges : {{e.eventCharges}}</p>
+                <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(e)">Edit</button>
+                <button class="btn btn-danger mx-3" (click)="deleteEvent(e.eventId)">Delete</button>
+            </div>
+          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+
+  </div>
+</div>
+</div>
+
+<!-- filtered events -->
+<div class="container" >
+  <div class="table table-striped " >
+
+        <div *ngFor="let e of filterEvent" style="display: inline-block;">
+          <div class="row">
+          <div class="col-12 col-md-4 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p> Event ID : {{e.eventId}}</p>
+                <p> Event Type : {{e.eventType}}</p>
+                <p> Description : {{e.description}}</p>
+                <p> Participants Count : {{e.participantsCount}}</p>
+                <p> Event Charges : {{e.eventCharges}}</p>
+                <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(e)">Edit</button>
+                <button class="btn btn-danger mx-3" (click)="deleteEvent(e.eventId)">Delete</button>
+            </div>
+          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+  </div>
+</div>
+
+<div id="exampleModal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Event Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formValue" >
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Event Type</label>
+                <input type="text"  formControlName="eventType" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Description</label>
+                <input type="text" formControlName="description" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Participants Count</label>
+                <input type="number" formControlName="participantsCount" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Event Charges</label>
+                <input type="text" formControlName="eventCharges" class="form-control" id="exampleInputPassword1">
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="add()">Add</button>
+        <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updateEvent()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

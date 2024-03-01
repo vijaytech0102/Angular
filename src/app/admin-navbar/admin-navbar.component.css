@@ -1,0 +1,34 @@
+/* Add this CSS to your global styles or in the component's CSS file */
+
+.navbar {
+  background-color: #007bff; /* Primary color */
+}
+
+.navbar-brand,
+.nav-link {
+  color: #faf8f8; /* White text */
+  cursor: pointer; /* Set cursor to pointer */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.nav-link:hover {
+  color: #ffffff; /* Change color on hover */
+}
+
+.navbar-toggler-icon {
+  background-color: #a83e3e; /* White background for the toggler icon */
+}
+
+.nav-item {
+  margin-right: 10px; /* Adjust the spacing between nav items */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Danger color for the logout button */
+  border-color: #dc3545; /* Border color */
+}
+
+.btn-danger:hover {
+  background-color: #8d1b26; /* Darker color on hover */
+  border-color: #bd2130;
+}

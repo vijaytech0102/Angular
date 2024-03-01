@@ -1,0 +1,49 @@
+<app-organizer-navbar></app-organizer-navbar>
+
+<div class="organizer-container">
+  <h2>Welcome, Organizer!</h2>
+  <!-- Your other content goes here -->
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <img class="card-img-top"
+          src="https://picsum.photos/300/300"
+          alt="Organizer Event">
+        <div class="card-body">
+          <h5 class="card-title">Your Events</h5>
+          <p class="card-text">View and manage the events you are organizing.</p>
+          <a class="btn btn-primary"  (click)="viewYourEvents()">View Events</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <img class="card-img-top"
+          src="https://picsum.photos/300/300"
+          alt="Organizer Bookings">
+        <div class="card-body">
+          <h5 class="card-title">Your Bookings</h5>
+          <p class="card-text">Check the status of your event bookings.</p>
+          <a class="btn btn-primary"  (click)="viewYourBookings()">View Bookings</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <img class="card-img-top"
+          src="https://picsum.photos/300/300"
+          alt="Organizer Payments">
+        <div class="card-body">
+          <h5 class="card-title">Your Payments</h5>
+          <p class="card-text">Track your payment history for organized events.</p>
+          <a class="btn btn-primary"  (click)="viewYourPayments()">View Payments</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

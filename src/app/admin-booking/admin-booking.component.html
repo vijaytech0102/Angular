@@ -1,0 +1,34 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="admin-bookings">
+  <h2>All Bookings</h2>
+
+  <div *ngFor="let organizer of organizers" class="organizer-box">
+    <div class="organizer-heading">
+      <h2>Organizer Name: {{ organizer.userName }}</h2>
+      <h2>Organizer Id: {{ organizer.organizerId }}</h2>
+    </div>
+
+    <div *ngFor="let booking of organizer.bookings" class="booking-item">
+      <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+      <p><strong>Status:</strong> {{ booking.bookingStatus }}</p>
+      <p><strong>Event Date:</strong> {{ booking.eventDate }}</p>
+      <p><strong>Event Type:</strong> {{ booking.event.eventType }}</p>
+      <p><strong>Head Count:</strong> {{ booking.headcount }}</p>
+      <p><strong>Amount:</strong> {{ booking.amount }}</p>
+      <p><strong>Amount Paid:</strong> {{ booking.payment?.amount }}</p>
+
+      <label for="status">Change Status:</label>
+      <select id="status" [(ngModel)]="booking.bookingStatus" (change)="updateStatus(booking.bookingId, booking.bookingStatus)">
+        <option value="Pending">Pending</option>
+        <option value="Verified">Verified</option>
+        <option value="Confirmed">Confirmed</option>
+        <option value="Booked">Booked</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2023 Admin Bookings. All rights reserved.</p>
+</footer>

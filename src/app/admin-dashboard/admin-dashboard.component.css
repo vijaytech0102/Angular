@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Apply general styles to the container */
+.container {
+  margin-top: 20px;
+}
+
+/* Style the welcome message */
+.striped-message {
+  text-align: center;
+  color: white;
+  background-color: #007bff;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+/* Style the card */
+.card {
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Style the card image */
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* Style the card body */
+.card-body {
+  padding: 15px;
+}
+
+/* Style the card title */
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Style the card text */
+.card-text {
+  color: #333;
+}
+
+/* Add box shadow and hover effect */
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the button group */
+.button-group {
+  margin-top: 15px;
+}
+
+/* Style the buttons */
+.btn-primary,
+.btn-secondary {
+  margin-right: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Add hover effect to buttons */
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #0056b3;
+  color: white;
+}

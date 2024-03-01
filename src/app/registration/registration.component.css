@@ -1,0 +1,59 @@
+/* Add this CSS to your global styles or in the component's CSS file */
+
+.container {
+  width: 50%;
+  margin: auto;
+  padding: 16px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff; /* Primary color */
+}
+
+p {
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: #007bff;
+}
+
+

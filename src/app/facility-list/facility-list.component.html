@@ -1,0 +1,102 @@
+<app-admin-navbar></app-admin-navbar>
+
+<table>
+  <tr>
+    <td><label><b>Filter by Facility :</b></label></td>
+      <td><input type="text" class="form-control" [(ngModel)]="facilityDescription" placeholder="Search by Facility Description"></td>
+      <td><button class="btn btn-primary pl-10" (click)="search()">Search</button></td>
+  </tr>
+</table>
+
+<!-- all events -->
+<div *ngIf="!filtershow">
+<div class="container" >
+  <div class="table table-striped " >
+
+        <div *ngFor="let f of facilities" style="display: inline-block;">
+          <div class="row">
+          <div class="col-12 col-md-4 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p> Facility ID : {{f.facilityId}}</p>
+
+                <p> Description : {{f.facilityDescription}}</p>
+                <p> Price: {{f.price}}</p>
+                <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(f)">Edit</button>
+                <button class="btn btn-danger mx-3" (click)="deleteFacility(f.facilityId)">Delete</button>
+            </div>
+          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+  </div>
+</div>
+</div>
+
+<!-- filtered events -->
+<div class="container" >
+  <div class="table table-striped ">
+
+        <div *ngFor="let f of filterFacility" style="display: inline-block;">
+          <div class="row">
+          <div class="col-12 col-md-4 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p> Facility ID : {{f.facilityId}}</p>
+              <p> Description : {{f.facilityDescription}}</p>
+              <p> Price: {{f.price}}</p>
+              <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(f)">Edit</button>
+              <button class="btn btn-danger mx-3" (click)="deleteFacility(f.facilityId)">Delete</button>
+            </div>
+          </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+  </div>
+</div>
+
+<div id="exampleModal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Facility Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formValue" >
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Facility Description</label>
+                <input type="text"  formControlName="facilityDescription" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Price</label>
+                <input type="text" formControlName="price" class="form-control" id="exampleInputPassword1">
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="add()">Add</button>
+        <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updateFacility()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container">
+  <div class="add">
+    <form [formGroup]="formValue" class="event-form">
+      <h3 id="heading">Add Event</h3>
+
+      <div class="form-row">
+        <label for="eventType"><b>Event Type:</b></label>
+        <input type="text" id="eventType" placeholder="Enter Event Type" formControlName="eventType">
+      </div>
+
+      <div class="form-row">
+        <label for="description"><b>Description:</b></label>
+        <input type="text" id="description" placeholder="Enter Description" formControlName="description">
+      </div>
+
+      <div class="form-row">
+        <label for="participantsCount"><b>Participants Count:</b></label>
+        <input type="number" id="participantsCount" placeholder="Participants Count" formControlName="participantsCount">
+      </div>
+
+      <div class="form-row">
+        <label for="eventCharges"><b>Event Charges:</b></label>
+        <input type="number" id="eventCharges" placeholder="Enter Event Charges" formControlName="eventCharges">
+      </div>
+
+      <div class="form-row">
+        <button type="submit" (click)="addNewEvent()">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-organizer-navbar></app-organizer-navbar>
+
+
+
+<div class="container">
+<div class="my-bookings">
+      <h2>My payment</h2>
+      <h3>User Name: {{userName}}</h3>
+      <h3> Organizer ID: {{organizerId}}</h3>
+<div *ngFor="let booking of bookingDetailsByUserName" class="booking-card">
+  <div class="booking-details">
+    <p>BookingId: {{booking.bookingId}}</p>
+    <p>Total Amount: {{booking.amount}}</p>
+
+    <div *ngIf="booking.payment">
+      <h6>Payments:</h6>
+
+      <p>Payment ID: {{booking.payment.paymentId}}</p>
+      <p>Amount Paid: {{booking.payment.amount}}</p>
+      <p>Remaining Amount to Paid: {{booking.amount-(booking.payment.amount ? booking.payment.amount:0)}}</p>
+      <p>Payment Date: {{booking.payment.paymentDate}}</p>
+      <p>Mode Of Payment: {{booking.payment.modeOfPayement}}</p>
+      <!-- Display other payment details if needed -->
+    </div>
+    <div *ngIf="!booking.payment">
+      <p>No payments found for this booking.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>

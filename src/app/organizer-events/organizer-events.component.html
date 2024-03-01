@@ -1,0 +1,117 @@
+<app-organizer-navbar></app-organizer-navbar>
+<button (click)="deb()">Debug</button>
+<table>
+  <tr>
+    <td><label><b>Filter by Event Type:</b></label></td>
+    <td><input type="text" class="form-control" [(ngModel)]="eventType" placeholder="Search by Event Type"></td>
+    <td><button class="btn btn-primary pl-10" (click)="search()">Search</button></td>
+  </tr>
+</table>
+
+
+<!-- all events -->
+<div *ngIf="!filtershow">
+  <div class="container">
+    <div class="table table-striped ">
+
+      <div *ngFor="let e of events" style="display: inline-block;">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <p> Event ID : {{e.eventId}}</p>
+                <p> Event Type : {{e.eventType}}</p>
+                <p> Description : {{e.description}}</p>
+                <p> Participants Count : {{e.participantsCount}}</p>
+                <p> Event Charges : {{e.eventCharges}}</p>
+                <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal" (click)="saveEventId(e.eventId)">Book</button>
+              </div>
+            </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- filtered events -->
+<div class="container">
+  <div class="table table-striped ">
+
+    <div *ngFor="let e of filterEvent" style="display: inline-block;">
+      <div class="row">
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p> Event ID : {{e.eventId}}</p>
+              <p> Event Type : {{e.eventType}}</p>
+              <p> Description : {{e.description}}</p>
+              <p> Participants Count : {{e.participantsCount}}</p>
+              <p> Event Charges : {{e.eventCharges}}</p>
+              <button class="btn btn-info" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="saveEventId(e.eventId)">Book</button>
+              <!-- <button class="btn btn-danger mx-3" (click)="deleteEvent(e.eventId)">Delete</button> -->
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="exampleModal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Apply for Event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User Name</label>
+            <input type="text" formControlName="userName" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Submission Date</label>
+            <input type="date" formControlName="submissionDate" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">`
+            <label for="exampleInputPassword1" class="form-label">Event Date</label>
+            <input type="date" formControlName="eventDate" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description</label>
+            <input type="text" formControlName="description" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Head Count</label>
+            <input type="text" formControlName="headCount" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Amount</label>
+            <input type="text" formControlName="amount" class="form-control" id="exampleInputPassword1">
+          </div>
+<div>
+<h4>Facilities</h4>
+  <div *ngFor="let item of facilities">
+    <input type="checkbox" [value]="item.facilityId" (change)="onCheckboxChange($event, item.facilityId)"> {{ item.facilityDescription }}
+  </div>
+</div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="addNewBooking()">Book</button>
+      </div>
+    </div>
+  </div>
+</div>

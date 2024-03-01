@@ -1,0 +1,31 @@
+/* Add this CSS to your global styles or in the component's CSS file */
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* organizer.component.css */
+
+.organizer-container {
+  background-color: #eaeaea; /* Set your desired background color */
+  padding: 20px; /* Add padding or styling as needed */
+}
